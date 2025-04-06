@@ -1,80 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Adrián González-López | Building Designer</title>
-  <style>
-    @font-face {
-      font-family: 'AkzidenzGrotesk';
-      src: url('./fonts/Berthold_Akzidenz_Grotesk_BE_Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: 'AkzidenzGrotesk', sans-serif;
-    }
-
-    .card {
-      background-color: #f9f8f7;
-      width: 768px; /* Original width */
-      height: 512px; /* Original height */
-      position: relative;
-      padding: 30px;
-      margin: 0 auto; /* Center the card horizontally */
-    }
-
-    .logo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-    }
-
-    .contact {
-      position: absolute;
-      bottom: 7.5px; /* Half the distance from bottom edge */
-      left: 15px; /* Half the distance from left edge */
-      color: #aaa69d;
-      font-size: 30px; /* 1.5 times bigger */
-    }
-
-    .name-title {
-      position: absolute;
-      bottom: 60px; /* Same as previous */
-      right: 60px; /* Same distance from right edge */
-      width: 50%; /* Twice the existing width */
-      text-align: right;
-      color: #aaa69d;
-      font-size: 22.5px; /* 1.5 times bigger than previous size */
-      line-height: 1.4;
-    }
-
-    .name-title span {
-      display: block;
-      margin-bottom: .05px; /* Shortened by 1/3 of its previous distance */
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>target with four faces</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="card">
-    <img src="20250405_TWFF_LOGO_03.png" alt="Target with Four Faces Logo" class="logo">
-    <div class="contact">Tel. +1 (619) 794.5500</div>
-    <div class="name-title">
-      <span>Adrián González-López</span>
-      <span>Building Designer</span>
+    <h1 class="title">
+      target with <span class="four">f</span><span class="four">o</span><span class="four">u</span><span class="four">r</span> faces
+    </h1>
+    <div class="contact-info">
+      <p class="email">adrian@twff.com</p>
+      <div class="designer">
+        <p>adrián gonzález-lópez</p>
+        <p>building designer</p>
+      </div>
     </div>
+    <img class="logo" src="20250405_TWFF_LOGO_04.png" alt="TWFF Logo" />
   </div>
 </body>
 </html>
