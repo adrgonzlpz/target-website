@@ -47,18 +47,23 @@
       bottom: 30px;
       left: 30px;
       color: #aaa69d;
-      font-size: 40px; /* Phone number size */
+      font-size: 20px; /* Half the original size */
     }
 
     .name-title {
       position: absolute;
       bottom: 60px; /* Twice the height from bottom */
-      right: 0;
+      right: 30px; /* Same distance from right edge as bottom */
       width: 50%; /* Twice the existing width */
       text-align: right;
       color: #aaa69d;
-      font-size: 30px; /* 25% smaller than phone number */
+      font-size: 15px; /* Half the original size */
       line-height: 1.4;
+    }
+
+    .name-title span {
+      display: block;
+      margin-bottom: 10px; /* 2/3 smaller than previous spacing */
     }
   </style>
 </head>
@@ -67,8 +72,8 @@
     <img src="20250405_TWFF_LOGO_03.png" alt="Target with Four Faces Logo" class="logo">
     <div class="contact">Tel. +1 (619) 794.5500</div>
     <div class="name-title">
-      Adrián González-López<br>
-      Building Designer
+      <span>Adrián González-López</span>
+      <span>Building Designer</span>
     </div>
   </div>
 </body>
