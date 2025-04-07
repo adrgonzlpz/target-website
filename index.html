@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TWFF Business Card</title>
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
     body {
-      margin: 40px; /* Increased margin size */
       background-color: black;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: calc(100vh - 80px); /* Adjusted height for top + bottom margins */
+      padding: 60px; /* This creates the visual breathing room */
+      box-sizing: border-box;
     }
     img {
       max-width: 100%;
-      height: auto;
-      max-height: 90vh;
+      max-height: 100%;
       display: block;
     }
   </style>
