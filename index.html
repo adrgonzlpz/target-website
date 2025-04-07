@@ -21,13 +21,19 @@
     }
 
     img {
-      width: 50%;        /* Half the width of the container */
-      height: auto;      /* Maintain aspect ratio */
+      width: 37.5%;    /* Default size (mobile-friendly) */
+      height: auto;
       display: block;
+    }
+
+    @media (min-width: 768px) {
+      img {
+        width: 50%;    /* Larger size on tablets and desktops */
+      }
     }
   </style>
 </head>
 <body>
-  <img src="20250405_TWFF_LOGO_06.png" alt="TWFF Business Card" />
+  <img src="20250405_TWFF_LOGO_05.png" alt="TWFF Business Card" />
 </body>
 </html>
