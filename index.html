@@ -1,157 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TWFF Business Card</title>
   <style>
-    :root { --bg: #000; --fg: #fff; --accent: #ddd; }
-    html,body { height:100%; margin:0; background:var(--bg); color:var(--fg); font-family:system-ui,Arial,sans-serif; }
+    html,
     body {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:40px;
-      box-sizing:border-box;
-      flex-direction:column;
-      gap:18px;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
     }
 
-    .link-wrapper {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      width:92%;
-      max-width:720px;
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      box-sizing: border-box;
     }
 
     img {
-      width:100%;
-      height:auto;
-      display:block;
-      cursor:pointer;
-      border-radius:6px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-      -webkit-user-drag: none;
+      width: 92%; /* Mobile (80% * 1.15) */
+      height: auto;
+      display: block;
     }
 
-    @media(min-width:768px) {
-      .link-wrapper { width:43.125%; } /* matches your earlier sizes */
-    }
-
-    .notice {
-      font-size:14px;
-      color:var(--accent);
-      text-align:center;
-    }
-
-    .fallback {
-      margin-top:6px;
-      display:none; /* shown only when fallback needed */
-      gap:8px;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .fallback a {
-      color:var(--fg);
-      text-decoration:underline;
-      cursor:pointer;
-    }
-
-    .copied {
-      display:inline-block;
-      padding:6px 10px;
-      background:rgba(255,255,255,0.06);
-      border-radius:6px;
-      font-size:13px;
-      color:var(--accent);
+    @media (min-width: 768px) {
+      img {
+        width: 43.125%; /* Desktop (37.5% * 1.15) */
+      }
     }
   </style>
 </head>
 <body>
-  <div class="link-wrapper">
-    <!-- Use a simple mailto anchor (no target) -->
-    <a id="mailtoLink" href="mailto:adrian@tw4f.com" aria-label="Email Adrian">
-      <img id="cardImg" src="20251021_TWFF_CARD_BASE.png" alt="TWFF business card — click to email Adrian" />
-    </a>
-  </div>
-
-  <div class="notice">
-    Click the card to email Adrian — if nothing opens, your browser may not have a default mail handler set.
-    <div id="fallback" class="fallback" role="status" aria-live="polite">
-      <span class="copied" id="copiedMsg" style="display:none">Email copied to clipboard</span>
-      <a id="manualMail" href="mailto:adrian@tw4f.com">Open email manually</a>
-      <span style="color:var(--accent)">·</span>
-      <button id="copyBtn" type="button">Copy email</button>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      const EMAIL = "adrian@tw4f.com";
-      const img = document.getElementById("cardImg");
-      const mailtoLink = document.getElementById("mailtoLink");
-      const fallback = document.getElementById("fallback");
-      const copyBtn = document.getElementById("copyBtn");
-      const copiedMsg = document.getElementById("copiedMsg");
-      const manualMail = document.getElementById("manualMail");
-
-      // Remove target attributes in case added elsewhere
-      mailtoLink.removeAttribute("target");
-
-      // Ensure manualMail link uses the same mailto
-      manualMail.href = "mailto:" + EMAIL;
-
-      // When image clicked: try to open mail client via location.href (most reliable).
-      // If browser blocks or user has no handler, show fallback UI and copy option.
-      function tryMailto() {
-        try {
-          // Primary method
-          window.location.href = "mailto:" + EMAIL;
-        } catch (e) {
-          showFallback();
-        }
-
-        // Because some browsers don't throw and just silently do nothing,
-        // show fallback UI shortly after click to give user an option.
-        setTimeout(showFallback, 700);
-      }
-
-      function showFallback() {
-        fallback.style.display = "inline-flex";
-      }
-
-      // Copy to clipboard fallback
-      async function copyEmail() {
-        try {
-          await navigator.clipboard.writeText(EMAIL);
-          copiedMsg.style.display = "inline-block";
-          // briefly show "copied" state
-          setTimeout(() => { copiedMsg.style.display = "none"; }, 2200);
-        } catch (err) {
-          // navigator.clipboard may be unavailable, fall back to prompt
-          const success = window.prompt("Copy this email address:", EMAIL);
-          if (success === null) {
-            // user cancelled — nothing to do
-          }
-        }
-      }
-
-      // Click handlers
-      img.addEventListener("click", function (ev) {
-        ev.preventDefault(); // keep control, then try to open mailto
-        tryMailto();
-      });
-
-      // Also allow clicking anchor normally (keyboard users)
-      mailtoLink.addEventListener("click", function () {
-        // allow default behavior, but show fallback if it doesn't work
-        setTimeout(showFallback, 700);
-      });
-
-      copyBtn.addEventListener("click", copyEmail);
-    })();
-  </script>
+  <img src="20251021_TWFF_CARD_BASE.png" alt="We are in business" />
 </body>
 </html>
