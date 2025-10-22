@@ -20,28 +20,30 @@
       box-sizing: border-box;
     }
 
-    a {
-      display: block;
-      width: 92%;
-    }
-
     img {
-      width: 100%;
+      width: 92%;
       height: auto;
       display: block;
       cursor: pointer;
     }
 
     @media (min-width: 768px) {
-      a {
+      img {
         width: 43.125%;
       }
     }
   </style>
 </head>
 <body>
-  <a href="mailto:adrian@tw4f.com">
+  <a href="mailto:adrian@tw4f.com" target="_blank" rel="noopener noreferrer">
     <img src="20251021_TWFF_CARD_BASE.png" alt="We are in business" />
   </a>
+
+  <script>
+    // Backup JavaScript trigger in case browser blocks mailto links by default
+    document.querySelector("img").addEventListener("click", function() {
+      window.location.href = "mailto:adrian@tw4f.com";
+    });
+  </script>
 </body>
 </html>
